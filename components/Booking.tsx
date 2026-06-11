@@ -17,15 +17,15 @@ const infos = [
   {
     icon: Phone,
     label: 'Téléphone',
-    value: '+33 6 XX XX XX XX',
-    href: 'tel:+336XXXXXXXX',
+    value: '+33 6 18 79 88 93',
+    href: 'tel:+33618798893',
     color: '#C4956A',
   },
   {
     icon: MessageCircle,
     label: 'WhatsApp',
     value: 'Message direct',
-    href: 'https://wa.me/336XXXXXXXX',
+    href: 'https://wa.me/33618798893',
     color: '#25D366',
   },
   {
@@ -234,7 +234,7 @@ export default function Booking() {
 
             {/* WhatsApp CTA */}
             <motion.a
-              href="https://wa.me/336XXXXXXXX"
+              href="https://wa.me/33618798893"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
