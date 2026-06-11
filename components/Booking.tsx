@@ -50,6 +50,11 @@ export default function Booking() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Réservation — ${form.service || 'Prestation'} — ${form.name}`);
+    const body = encodeURIComponent(
+      `Prénom : ${form.name}\nTéléphone : ${form.phone}\nDate souhaitée : ${form.date}\nPrestation : ${form.service}\nMessage : ${form.message}`
+    );
+    window.location.href = `mailto:solykim@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 

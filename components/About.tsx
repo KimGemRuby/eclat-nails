@@ -54,7 +54,7 @@ export default function About() {
               <div className="about-visual w-full aspect-[4/5] relative overflow-hidden">
                 {/* Real photo */}
                 <Image
-                  src="/sreynouv-portrait.jpg"
+                  src="/eclat-nails/sreynouv-portrait.jpg"
                   alt="Sreynouv Rann — Manucure professionnelle à domicile"
                   fill
                   className="object-cover object-top rounded-[32px]"

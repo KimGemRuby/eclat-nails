@@ -79,7 +79,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs font-light">
-            © 2025 Sreynouv Rann — Éclat Nails. Tous droits réservés.
+            © {new Date().getFullYear()} Sreynouv Rann — Éclat Nails. Tous droits réservés.
           </p>
           <motion.p
             initial={{ opacity: 0 }}

@@ -129,10 +129,7 @@ export default function Pricing() {
                 {/* Price */}
                 <div className="mb-8">
                   <span className="price-big" style={{ color: popular ? 'white' : undefined }}>
-                    {popular
-                      ? price
-                      : undefined}
-                    {!popular && (
+                                        {!popular && (
                       <span className="font-display text-5xl font-light gradient-text">{price} €</span>
                     )}
                     {popular && (

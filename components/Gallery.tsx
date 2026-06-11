@@ -9,8 +9,8 @@ type Category = 'Tous' | 'Classique' | 'Nail Art' | 'Semi-permanent' | 'Extensio
 type GalleryItem = { gradient?: string; image?: string; label: string; cat: Category; aspect: string };
 
 const galleryItems: GalleryItem[] = [
-  { image: '/sreynouv-portrait.jpg', label: 'Sreynouv Rann', cat: 'Classique', aspect: '3/4' },
-  { image: '/sreynouv-pro.jpg', label: 'Professionnelle certifiée', cat: 'Classique', aspect: '4/5' },
+  { image: '/eclat-nails/sreynouv-portrait.jpg', label: 'Sreynouv Rann', cat: 'Classique', aspect: '3/4' },
+  { image: '/eclat-nails/sreynouv-pro.jpg', label: 'Professionnelle certifiée', cat: 'Classique', aspect: '4/5' },
   { gradient: 'linear-gradient(145deg,#FADADD,#F4A7B9)', label: 'French Romantique', cat: 'Classique', aspect: '3/4' },
   { gradient: 'linear-gradient(145deg,#8B2252,#C2185B)', label: 'Bordeaux Velvet', cat: 'Semi-permanent', aspect: '4/5' },
   { gradient: 'linear-gradient(145deg,#E8D5C4,#C4956A)', label: 'Nude Caramel', cat: 'Classique', aspect: '3/4' },
