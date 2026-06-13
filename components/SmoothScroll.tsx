@@ -22,18 +22,27 @@ export default function SmoothScroll() {
       Math.max(0, el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET);
 
     const scrollToEl = (el: Element, hash: string) => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) {
+        window.scrollTo(0, targetTop(el));
+        history.replaceState(null, '', hash);
+        return;
+      }
+
       const start = window.scrollY;
-      const duration = 650;
+      const target = targetTop(el); // fixed for the duration → smooth, monotonic motion
+      const distance = target - start;
+      const duration = Math.min(900, Math.max(350, Math.abs(distance) * 0.5));
       const startTime = performance.now();
       const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
       const step = (now: number) => {
         const t = Math.min(1, (now - startTime) / duration);
-        const target = targetTop(el); // recompute → immune to layout shift
-        window.scrollTo(0, start + (target - start) * easeOutCubic(t));
+        window.scrollTo(0, start + distance * easeOutCubic(t));
         if (t < 1) {
           requestAnimationFrame(step);
         } else {
+          // final exact snap — corrects any layout shift that happened en route
           window.scrollTo(0, targetTop(el));
           history.replaceState(null, '', hash);
         }
