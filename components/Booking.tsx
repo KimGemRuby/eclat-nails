@@ -48,13 +48,21 @@ export default function Booking() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', date: '', service: '', message: '' });
 
+  const WHATSAPP_NUMBER = '33618798893';
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Réservation — ${form.service || 'Prestation'} — ${form.name}`);
-    const body = encodeURIComponent(
-      `Prénom : ${form.name}\nTéléphone : ${form.phone}\nDate souhaitée : ${form.date}\nPrestation : ${form.service}\nMessage : ${form.message}`
-    );
-    window.location.href = `mailto:solykim@gmail.com?subject=${subject}&body=${body}`;
+    const lines = [
+      'Bonjour Sreynouv, je souhaite réserver une prestation 💅',
+      '',
+      `• Prénom : ${form.name}`,
+      `• Téléphone : ${form.phone}`,
+      `• Prestation : ${form.service}`,
+    ];
+    if (form.date) lines.push(`• Date souhaitée : ${form.date}`);
+    if (form.message) lines.push(`• Message : ${form.message}`);
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener');
     setSent(true);
   };
 
@@ -99,9 +107,10 @@ export default function Booking() {
                 >
                   <CheckCircle size={56} className="text-rose-gold mx-auto mb-5" />
                   <h3 className="font-display text-3xl font-light text-warm-dark mb-2">
-                    Message envoyé !
+                    Demande prête sur WhatsApp !
                   </h3>
                   <p className="text-warm-mid font-light">
+                    Votre message s'est ouvert dans WhatsApp — il ne reste qu'à l'envoyer.
                     Je vous réponds dans les 2 heures. À très bientôt ✨
                   </p>
                 </motion.div>

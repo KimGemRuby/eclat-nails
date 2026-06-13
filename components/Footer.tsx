@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Heart } from 'lucide-react';
+import { MessageCircle, Heart } from 'lucide-react';
 
 const links = [
   { label: 'À propos', href: '#about' },
@@ -52,23 +52,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social & CTA */}
+          {/* Contact & CTA */}
           <div>
-            <h4 className="text-xs font-medium tracking-widest text-white/40 uppercase mb-5">Suivez-nous</h4>
-            <div className="flex gap-3 mb-6">
-              {[
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Facebook, href: '#', label: 'Facebook' },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-rose-gold/40 hover:text-rose-gold transition-all"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+            <h4 className="text-xs font-medium tracking-widest text-white/40 uppercase mb-5">Contact</h4>
+            <div className="flex flex-col gap-3 mb-6">
+              <a href="tel:+33618798893" className="text-white/60 text-sm hover:text-rose-gold-light transition-colors font-light">
+                +33 6 18 79 88 93
+              </a>
+              <a
+                href="https://wa.me/33618798893"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white/60 text-sm hover:text-rose-gold-light transition-colors font-light"
+              >
+                <MessageCircle size={15} /> WhatsApp
+              </a>
             </div>
             <a href="#booking" className="btn-primary text-xs py-3 px-6">
               Prendre rendez-vous
